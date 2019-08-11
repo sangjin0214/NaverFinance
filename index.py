@@ -9,11 +9,10 @@ params = {
     "query": "SERVICE_ITEM:035420"
 }
 
-table = "stock"
-
-result = requests.get(url, params=params).json()
+table = "naver_stock"
 
 while(True):
+    result = requests.get(url, params=params).json()
     if result["resultCode"] == "success":
         for areas in result["result"]["areas"]:
             for data in areas["datas"]:
